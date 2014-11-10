@@ -36,27 +36,27 @@ public class Magpie
     System.out.println ("Say something, please.");
   }
   
-  if (statement.indexOf("no") >= 0)
+  if (findKeyword(statement,"no") >= 0)
   {
    response = "Why not?";
   }
   
-  else if (statement.indexOf("cat") >= 0
-    || statement.indexOf("dog") >= 0)
+  else if (findKeyword(statement, "cat") >= 0
+    || findKeyword(statement,"dog") >= 0)
   {
     response = "Do you really like pets?";
   }
   
-  else if (statement.indexOf("mr. kiang") >= 0
-    || statement.indexOf("mr. landgraf") >= 0)
+  else if (findKeyword(statement,"mr. kiang") >= 0
+    || findKeyword(statement,"mr. landgraf") >= 0)
   {
     response = "He's so cool!";
   }
   
-  else if (statement.indexOf("mother") >= 0
-    || statement.indexOf("father") >= 0
-    || statement.indexOf("sister") >= 0
-    || statement.indexOf("brother") >= 0)
+  else if (findKeyword(statement,"mother") >= 0
+    || findKeyword(statement,"father") >= 0
+    || findKeyword(statement,"sister") >= 0
+    || findKeyword(statement,"brother") >= 0)
   {
    response = "Hows your family?";
   }
@@ -66,9 +66,11 @@ public class Magpie
   }
   return response;
  }
+ 
  public int findKeyword(String statement, String goal,
    int startPos)
  {
+  String response = "";
   String phrase = statement.trim();
   // The only change to incorporate the startPos is in
   // the line below
